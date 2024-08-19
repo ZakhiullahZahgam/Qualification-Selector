@@ -1,0 +1,129 @@
+/* Scoped styles for a specific page */
+#page-specific html, #page-specific body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#page-specific #wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px 0; /* Increased top padding to ensure space for icons */
+    box-sizing: border-box;
+}
+
+/* Container for icon rows */
+#page-specific .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 100%;
+    width: 100%;
+    overflow: visible; /* Ensure overflow is visible */
+    margin-top: 40px; /* Reduced margin-top to match the new padding */
+}
+
+/* Icon row styles */
+#page-specific .icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Individual icon item */
+#page-specific .icon-item {
+    flex: 0 1 150px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Icon styles */
+#page-specific .icon {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent; /* Initial border is transparent */
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* Hover and selected effect */
+#page-specific .icon-item:hover .icon,
+#page-specific .icon-item.selected .icon {
+    background-color: #e0f7fa; /* Light cyan background when hovered/selected */
+    border-color: #00796b; /* Change border color when hovered/selected */
+    transform: scale(1.05); /* Slightly enlarge the icon */
+    z-index: 1; /* Ensure the icon appears above other elements */
+}
+
+/* Icon image styling */
+#page-specific .icon-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+}
+
+/* Icon name */
+#page-specific .icon-name {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Tooltip styling */
+#page-specific .icon-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+#page-specific .icon-link[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+#page-specific .icon-link:hover[data-tooltip]::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #page-specific .icon-row {
+        gap: 20px;
+    }
+
+    #page-specific .icon-item {
+        flex: 0 1 120px;
+    }
+
+    #page-specific .icon {
+        width: 120px;
+        height: 120px;
+    }
+}
